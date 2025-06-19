@@ -47,6 +47,17 @@ function c97057024.initial_effect(c)
 	e5:SetOperation(c97057024.repop)
 	c:RegisterEffect(e5)
 end
+function c97057024.cost(e,tp,eg,ep,ev,re,r,rp)
+	if chk==0 then return true end
+	local e1=Effect.CreateEffect(e:GetHandler())
+	e1:SetType(EFFECT_TYPE_FIELD)
+	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
+	e1:SetCode(EFFECT_CANNOT_ACTIVATE)
+	e1:SetTargetRange(1,0)
+	e1:SetValue(c97057024.aclimit)
+	Duel.RegisterEffect(e1,tp)
+	aux.RegisterClientHint(e:GetHandler(),nil,tp,1,0,aux.Stringid(97057024,3),nil)
+end
 function c97057024.spfilter(c,e,tp)
 	return c:IsSetCard(0x3bd) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end

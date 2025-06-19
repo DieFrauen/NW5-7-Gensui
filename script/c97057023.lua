@@ -15,7 +15,7 @@ function c97057023.filter1(c,e,tp)
 	local lv,rk=c:GetLevel(),0
 	if c:IsType(TYPE_XYZ) then rk=c:GetRank() end
 	local pg=aux.GetMustBeMaterialGroup(tp,Group.FromCards(c),tp,nil,nil,REASON_XYZ)
-	return (#pg<=0 or (#pg==1 and pg:IsContains(c))) and c:IsSetCard(0x3bd) and c:IsFaceup() and (lv>0 or (rk>0 or c:IsStatus(STATUS_NO_LEVEL)))
+	return (#pg<=0 or (#pg==1 and pg:IsContains(c))) and c:IsRace(RACE_MACHINE) and c:IsAttribute(ATTRIBUTE_WATER) and c:IsFaceup() and (lv>0 or (rk>0 or c:IsStatus(STATUS_NO_LEVEL)))
 		and Duel.IsExistingMatchingCard(c97057023.filter2,tp,LOCATION_EXTRA,0,1,nil,e,tp,c,lv,rk)
 end
 function c97057023.filter2(c,e,tp,mc,lv,rk)

@@ -45,7 +45,7 @@ function c97057005.spop(e,tp,eg,ep,ev,re,r,rp)
 end
 
 function c97057005.xyzfilter(c,mg)
-	return c:IsXyzSummonable(nil,mg)
+	return c:IsXyzSummonable(nil,mg) and c:GetRank()==5
 end
 function c97057005.mfilter(c)
 	return c:IsFaceup() and c:IsSetCard(0x3bd) and not c:IsType(TYPE_TOKEN)
